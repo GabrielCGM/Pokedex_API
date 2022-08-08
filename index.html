@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>POKE</title>
+
+</head>
+<body>
+    
+        <div id='linha' class="row">
+            <div class="card" style="width: 18rem;"
+                </div>
+              </div
+      </div>
+
+
+    <script>
+        for(var i = 1; i < 800; i++){
+            $.ajax({
+            url: "https://pokeapi.co/api/v2/pokemon/" + i,
+            method: 'get',
+            async: true ,
+            success: function(resposta){
+                var linha = document.getElementById('linha')
+                conteudo = '<div class="card" style="width: 18px;">\
+                            <img class="card-img-top" src="'+resposta['sprites']['other']['dream_world']['front_default'] +'" alt="Card image cap">\
+                            <div class="card-body">\
+                            <h5 class="card-title">'+ resposta['forms'][0]['name']  +'</h5>\
+                            </div>\
+                        </div>'
+                
+                linha.innerHTML += conteudo
+                
+                
+                
+                console.log(resposta['forms'][0]['name'])
+            }
+        })
+        }
+        
+
+
+    </script>
+
+
+
+</body>
+</html>
